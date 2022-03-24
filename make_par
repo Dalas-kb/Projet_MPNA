@@ -1,0 +1,14 @@
+OMP_NUM_THREADS=2
+export OMP_NUM_THREADS
+
+M = 4
+N = 3
+
+N_REPETS = 10
+
+B_PRINT = 1 # 0 pour desactiver l'affichage (affiche seulement le temps d'exec)
+
+CC = gcc
+all:
+	$(CC) svd_parallel.c -o svd_par -lm -llapacke -fopenmp
+	./svd_par  $(M) $(N) $(N_REPETS) $(B_PRINT)
